@@ -40,6 +40,7 @@
 import { Teleport, computed, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default {
     rules: {
@@ -80,9 +81,17 @@ export default {
                   validation.value = error.response.data
                   if(error.response.data.email == null && error.response.data.password == null){
                     validation.value = error.response.data.message;
-                    isOpen.value = true
-                    setTimeout(() => { isOpen.value = false},2000);
-                  }                    
+                    // isOpen.value = true
+                    // setTimeout(() => { isOpen.value = false},2000);
+                    Swal.fire({
+                      icon: 'error',
+                      title: validation.value,
+                      text: 'Something went wrong!',
+                      footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                  }   
+                  
+                  
                   
                  
             });
