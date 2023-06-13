@@ -85,9 +85,7 @@ export default {
                     // setTimeout(() => { isOpen.value = false},2000);
                     Swal.fire({
                       icon: 'error',
-                      title: validation.value,
-                      text: 'Something went wrong!',
-                      footer: '<a href="">Why do I have this issue?</a>'
+                      title: validation.value
                     })
                   }   
                   
@@ -121,6 +119,7 @@ export default {
 }
 
 html,
+
 body {
   height: 100%;
   margin: 0;

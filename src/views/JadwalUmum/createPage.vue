@@ -101,6 +101,7 @@
 import { reactive, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default {
     setup() {
@@ -163,8 +164,13 @@ export default {
                     if(error.response.data.message != null){
                         validation.value = error.response.data.message;
                         console.log(error.response.data) 
-                        isOpen.value = true
-                        setTimeout(() => { isOpen.value = false},2000);
+                        // isOpen.value = true
+                        // setTimeout(() => { isOpen.value = false},2000);
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: validation.value
+                            })
                     }
                 }) 
             }
